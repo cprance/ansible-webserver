@@ -1,0 +1,14 @@
+---
+  - name: install httpd
+    hosts: all
+    become: yes
+    tasks:
+      - name: install latest version of apache
+        apt:
+          name: httpd
+          state: latest
+      - name: ensure httpd is running and enabled
+        service:
+          name: httpd
+          state: started
+          enabled: yes
