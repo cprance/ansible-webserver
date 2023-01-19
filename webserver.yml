@@ -4,7 +4,7 @@
     become: yes
     tasks:
       - name: install latest version of apache
-        apt:
+        yum:
           name: httpd
           state: latest
       - name: ensure httpd is running and enabled
