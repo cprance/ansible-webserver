@@ -1,14 +1,16 @@
 ---
-  - name: install httpd
-    hosts: all
-    become: yes
-    tasks:
-      - name: install latest version of apache
-        apt:
-          name: httpd
-          state: latest
-      - name: ensure httpd is running and enabled
-        service:
-          name: httpd
-          state: started
-          enabled: yes
+- hosts: all 
+  become: true 
+  tasks:
+  - name: Install Apache on Debian/Ubuntu
+    apt:
+      name: 'httpd'
+      state: latest
+      update_cache: yes
+      force_apt_get: yes
+    when: ansible_distribution == "Ubuntu" or ansible_distribution == "Debian"
+  - name: Install Apache on CentOS
+    yum:
+      name: 'httpd'
+      state: latest
+    when: ansible_distribution == "CentOS"
