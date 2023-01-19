@@ -4,7 +4,7 @@
   tasks:
   - name: Install Apache on Debian/Ubuntu
     apt:
-      name: 'httpd'
+      name: 'apache2'
       state: latest
       update_cache: yes
       force_apt_get: yes
