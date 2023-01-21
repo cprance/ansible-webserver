@@ -16,6 +16,7 @@
     when: ansible_distribution == "CentOS"
   - name: enable httpd service
     service:
+      name: httpd
       enabled: true
       state: started
 
