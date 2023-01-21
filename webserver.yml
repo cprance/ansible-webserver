@@ -14,3 +14,8 @@
       name: 'httpd'
       state: latest
     when: ansible_distribution == "CentOS"
+  - name: enable httpd service
+    service:
+      enabled: true
+      state: started
+
